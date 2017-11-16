@@ -179,7 +179,8 @@ function deleteAllBox(idForm, action) {
     $('#deletebox').dialog('open');
 }
 
-function aksiBorongan(idForm, action, title, pesan) {
+function aksiBorongan(idForm, action, title, pesan, target) {
+    if (typeof(target)==='undefined') target = '';
     $('#konfirmasibox').remove();
     $('body').append('<div id="konfirmasibox" title="'+title+'" style="display:none;"><p>'+pesan+'</p></div>');
     $('#konfirmasibox').dialog({
@@ -191,7 +192,9 @@ function aksiBorongan(idForm, action, title, pesan) {
         buttons: {
             "Ya": function() {
                 $('#' + idForm).attr('action', action);
+                $('#' + idForm).attr('target', target);
                 $('#' + idForm).submit();
+                $(this).dialog("close");
             },
             "Tidak": function() {
                 $(this).dialog("close");

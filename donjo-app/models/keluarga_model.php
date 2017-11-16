@@ -467,11 +467,24 @@
 	}
 
 	function get_data_cetak_kk($id=0){
-		$data['id_kk'] = $id;
+		$kk['id_kk'] = $id;
 
-		$data['main'] = $this->keluarga_model->list_anggota($id);
-		$data['kepala_kk'] = $this->keluarga_model->get_kepala_kk($id);
-		$data['desa'] = $this->keluarga_model->get_desa();
+		$kk['main'] = $this->keluarga_model->list_anggota($id);
+		$kk['kepala_kk'] = $this->keluarga_model->get_kepala_kk($id);
+		$kk['desa'] = $this->keluarga_model->get_desa();
+		$data['all_kk'][] = $kk;
+		return $data;
+	}
+
+	function get_data_cetak_kk_all(){
+		$data = array();
+		$id_cb = $_POST['id_cb'];
+		if(count($id_cb)){
+			foreach($id_cb as $id){
+				$kk = $this->get_data_cetak_kk($id);
+				$data['all_kk'][] = $kk['all_kk'][0]; //Kumpulkan semua kk
+			}
+		}
 		return $data;
 	}
 

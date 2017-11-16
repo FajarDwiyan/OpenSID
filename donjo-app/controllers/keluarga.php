@@ -492,12 +492,14 @@ function __construct(){
 	}
 
 	function cetak_kk($id=0){
-
 		$data = $this->keluarga_model->get_data_cetak_kk($id);
-		$nav['act']= 1;
-		$header = $this->header_model->get_data();
-		$this->load->view("sid/kependudukan/cetak_kk", $data);
+		$this->load->view("sid/kependudukan/cetak_kk_all", $data);
 
+	}
+
+	function cetak_kk_all(){
+		$data = $this->keluarga_model->get_data_cetak_kk_all();
+		$this->load->view("sid/kependudukan/cetak_kk_all", $data);
 	}
 
 	function doc_kk($id=0){
