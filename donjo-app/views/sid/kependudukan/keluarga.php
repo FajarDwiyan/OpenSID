@@ -54,7 +54,10 @@
                                     <span class="judul">Cetak Kartu Keluarga</span>
                                     <span class="fa fa-print fa-lg">&nbsp;</span>
                                 </li>
-                                <li><span class="judul">Unduh Kartu Keluarga</span><span class="fa fa-download fa-lg">&nbsp;</span></li>
+                                <li onclick="aksiBorongan('mainform','<?php echo site_url("keluarga/doc_kk_all")?>','Unduh Kartu Keluarga','Apakah anda yakin mau mengunduh KK ini?','_blank')">
+                                    <span class="judul">Unduh Kartu Keluarga</span>
+                                    <span class="fa fa-download fa-lg">&nbsp;</span>
+                                </li>
                             </ul>
                         </li>
                     </ul>
