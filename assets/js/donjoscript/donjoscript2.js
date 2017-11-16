@@ -179,6 +179,27 @@ function deleteAllBox(idForm, action) {
     $('#deletebox').dialog('open');
 }
 
+function aksiBorongan(idForm, action, title, pesan) {
+    $('#konfirmasibox').remove();
+    $('body').append('<div id="konfirmasibox" title="'+title+'" style="display:none;"><p>'+pesan+'</p></div>');
+    $('#konfirmasibox').dialog({
+        resizable: false,
+        draggable: false,
+        width: 400,
+        autoOpen: false,
+        modal: true,
+        buttons: {
+            "Ya": function() {
+                $('#' + idForm).attr('action', action);
+                $('#' + idForm).submit();
+            },
+            "Tidak": function() {
+                $(this).dialog("close");
+            }
+        }
+    });
+    $('#konfirmasibox').dialog('open');
+}
 
 function verifikasi(idForm, action) {
     $('#deletebox').remove();

@@ -36,7 +36,6 @@
             <div class="uibutton-group">
                 <a href="<?php echo site_url('keluarga/form')?>" class="uibutton tipsy south" title="Tambah Data KK Baru" ><span class="fa fa-plus-square">&nbsp;</span>Tambah KK Baru</a>
                 <a href="<?php echo site_url('keluarga/form_old')?>" target="ajax-modal" rel="window" header="Tambah Data Kepala Keluarga" class="uibutton tipsy south" title="Tambah Data KK dari penduduk yang sudah ter-input" ><span class="fa fa-plus">&nbsp;</span>Tambah KK</a>
-                <?php  if($grup==1){?><button type="button" title="Hapus Data" onclick="deleteAllBox('mainform','<?php echo site_url("keluarga/delete_all/$p/$o")?>')" class="uibutton tipsy south"><span class="fa fa-trash">&nbsp;</span>Hapus Data</button><?php  }?>
 				<a href="<?php echo site_url("keluarga/cetak/$o")?>" target="_blank" class="uibutton tipsy south" title="Cetak Data" ><span class="fa fa-print">&nbsp;</span>Cetak</a>
 				<a href="<?php echo site_url("keluarga/excel/$o")?>" target="_blank" class="uibutton tipsy south" title="Unduh Data" ><span class="fa fa-file-text">&nbsp;</span>Unduh</a>
 				&nbsp;
@@ -45,7 +44,12 @@
                     <ul id="siteman-nav" class="top">
                         <li class="uibutton"><span class="judul">Aksi Borongan</span><span class="fa fa-caret-down fa-lg">&nbsp;</span>
                             <ul>
-                                <li><span class="judul">Hapus</span><span class="fa fa-trash fa-lg">&nbsp;</span></li>
+                                <?php  if($grup==1): ?>
+                                    <li onclick="aksiBorongan('mainform','<?php echo site_url("keluarga/delete_all/$p/$o")?>','Hapus Data','Apakah anda yakin mau menghapus data ini?')">
+                                        <span class="judul">Hapus</span>
+                                        <span class="fa fa-trash fa-lg">&nbsp;</span>
+                                    </li>
+                                <?php endif; ?>
                                 <li><span class="judul">Cetak Kartu Keluarga</span><span class="fa fa-print fa-lg">&nbsp;</span></li>
                                 <li><span class="judul">Unduh Kartu Keluarga</span><span class="fa fa-download fa-lg">&nbsp;</span></li>
                             </ul>
